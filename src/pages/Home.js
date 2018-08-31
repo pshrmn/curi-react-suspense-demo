@@ -12,7 +12,7 @@ export default ({ response }) => (
       margin: 25px auto 0;
     `}
   >
-    <Featured streams={response.data.featured} />
+    <Featured />
     <div
       className={css`
         margin: 50px auto 0;
@@ -20,7 +20,7 @@ export default ({ response }) => (
       `}
     >
       <h2>Featured Games</h2>
-      <GamesList games={response.data.games} />  
+      <GamesList count={10} />
     </div>
   </div>
 );

@@ -1,35 +1,64 @@
 import React from "react";
 import { css } from "emotion";
+import { createResource } from "simple-cache-provider";
+
+import { cache } from "../cache";
+import API from "../generators/streamState";
 
 import UserTopBar from '../components/UserTopBar';
 import VideoPlayer from '../components/VideoPlayer';
 import Chat from '../components/Chat';
 
-export default ({ response }) => (
-  response.data.error
-    ? <div>
-        {response.data.error}
-      </div>
-    : <div
+const userResource = createResource(username => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        const stream = API.stream(username);
+        resolve(stream);
+      } catch (e) {
+        reject("User not found");
+      }
+    }, 1000);
+  });
+})
+
+export default ({ response }) => {
+  const user = userResource.read(cache, response.params.username);
+  if (!user) {
+    return (
+      <div
         className={css`
           display: flex;
           flex-flow: row nowrap;
         `}
       >
+        User not found :(
+      </div>
+    )
+  }
+
+  return (
+    <div
+      className={css`
+        display: flex;
+        flex-flow: row nowrap;
+      `}
+    >
+      <div
+        className={css`
+          flex-grow: 2;
+        `}
+      >
+        <UserTopBar user={user} />
         <div
           className={css`
-            flex-grow: 2;
+            padding: 20px 30px;
           `}
         >
-          <UserTopBar user={response.data.user} />
-          <div
-            className={css`
-              padding: 20px 30px;
-            `}
-          >
-            <VideoPlayer stream={response.data.user} />
-          </div>
+          <VideoPlayer stream={user} />
         </div>
-        <Chat stream={response.data.user}/>
       </div>
-);
+      <Chat stream={user}/>
+    </div>
+  );
+}

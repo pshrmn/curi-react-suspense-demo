@@ -1,9 +1,17 @@
 import React from "react";
 import { css } from "emotion";
+import { createResource } from "simple-cache-provider";
+
+import API from '../../generators/streamState';
+import { cache } from "../../cache";
 
 import Featuring from './Featuring';
 import Carousel from './Carousel';
 import Thumbnail from '../Thumbnail';
+
+const streamsResource = createResource(() => {
+  return Promise.resolve(API.featuredStreams(10));
+});
 
 export default class Featured extends React.Component {
   state = { active: 0 };
@@ -13,7 +21,7 @@ export default class Featured extends React.Component {
   }
 
   render() {
-    const { streams } = this.props;
+    const streams = streamsResource.read(cache);
     const { active } = this.state;
     const activeFeatured = streams[active];
 
