@@ -4,7 +4,7 @@ import SpinnerLink from "../SpinnerLink";
 
 import Thumbnail from '../Thumbnail';
 
-const A = props => (
+const StyledLink = props => (
   <SpinnerLink
     {...props}
     className={css`
@@ -65,6 +65,7 @@ export default ({ stream }) => (
         />
         <div
           className={css`
+            padding-left: 5px;
             min-width: 0;
 
             h2 {
@@ -84,17 +85,17 @@ export default ({ stream }) => (
           </h2>
           <h3>
             Playing{" "}
-            <A to='Game' params={{ game: stream.playing.name }}>
+            <StyledLink to='Game' params={{ game: stream.playing.name }}>
               {stream.playing.name}
-            </A>
+            </StyledLink>
           </h3>
         </div>
       </div>
       <p>
         {stream.description}
-        <A to='Stream' params={{ username: stream.username }}>
+        <StyledLink to='Stream' params={{ username: stream.username }}>
           Start watching!
-        </A>
+        </StyledLink>
       </p>
     </div>
   </div>

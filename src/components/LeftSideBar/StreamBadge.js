@@ -17,20 +17,13 @@ const StyledLink = props => (
   />
 );
 
-const Header = ({ tag='h4', ...rest }) => (
-  React.createElement(tag,
-    {
-      ...rest,
-      className: css`
-        font-weight: normal;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 150px;
-      `
-    }
-  )
-);
+const HEADER = css`
+  font-weight: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+`;
 
 export default ({ stream, hidden }) => (
   <div
@@ -48,8 +41,8 @@ export default ({ stream, hidden }) => (
                   margin-left: 5px;
                 `}
               >
-                <Header tag="h4">{stream.username}</Header>
-                <Header tag="h5">{stream.playing.name}</Header>
+                <h4 className={HEADER}>{stream.username}</h4>
+                <h5 className={HEADER}>{stream.playing.name}</h5>
               </div>
             : null
           }

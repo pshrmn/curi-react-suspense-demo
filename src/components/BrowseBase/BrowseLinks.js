@@ -3,32 +3,20 @@ import { css } from "emotion";
 
 import ActiveLink from '../ActiveLink';
 
-const UL = ({ children, }) => (
-  <ul
-    className={css`
-    display: flex;
-    height: 35px;
-    align-items: flex-end;
-    margin: 0;
-    padding: 5px;
-    list-style: none;
-    `}
-  >
-    {children}
-  </ul>
-);
+const UL = css`
+  display: flex;
+  height: 35px;
+  align-items: flex-end;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+`;
 
-const LI = ({ children, }) => (
-  <li
-    className={css`
-      margin-right: 10px;
-    `}
-  >
-    {children}
-  </li>
-);
+const LI = css`
+  margin-right: 10px;
+`;
 
-const A = (props) => (
+const StyledLink = (props) => (
   <ActiveLink
     {...props}
     className={css`
@@ -43,18 +31,18 @@ const A = (props) => (
 
 const BrowseLinks = () => (
   <nav>
-    <UL>
-      <LI>
-        <A to='Browse Games'>
+    <ul className={UL}>
+      <li className={LI}>
+        <StyledLink to='Browse Games'>
           Games
-        </A>
-      </LI>
-      <LI>
-        <A to='Browse Popular'>
+        </StyledLink>
+      </li>
+      <li className={LI}>
+        <StyledLink to='Browse Popular'>
           Streams
-        </A>
-      </LI>
-    </UL>
+        </StyledLink>
+      </li>
+    </ul>
   </nav>
 );
 

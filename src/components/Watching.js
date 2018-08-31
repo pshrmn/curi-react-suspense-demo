@@ -5,7 +5,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import fmt from '../utils/numberFormat';
 
-
 const Watching = ({ count }) => (
   <div
     className={css`

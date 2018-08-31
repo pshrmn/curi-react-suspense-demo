@@ -4,27 +4,17 @@ import { css } from "emotion";
 
 import fmt from '../utils/numberFormat';
 
-const PFull = props => (
-  <p
-    {...props}
-    className={css`
-      @media screen and (max-width: 1500px) {
-        display: none;
-      }
-    `}
-  />
-);
+const FULL = css`
+  @media screen and (max-width: 1500px) {
+    display: none;
+  }
+`;
 
-const PPartial = props => (
-  <p
-    {...props}
-    className={css`
-      @media screen and (max-width: 1100px) {
-          display: none;
-      }
-    `}
-  />
-);
+const PARTIAL = css`
+  @media screen and (max-width: 1100px) {
+      display: none;
+  }
+`;
 
 const UserTopBar = ({ user }) => (
   <div
@@ -65,12 +55,12 @@ const UserTopBar = ({ user }) => (
       >
         {user.username}
       </Link>
-      <PFull>Videos</PFull>
-      <PFull>Clips</PFull>
-      <PFull>Collections</PFull>
-      <PFull>Events</PFull>
-      <PPartial>Followers {fmt(user.followers)}</PPartial>
-      <PFull>Following</PFull>
+      <p className={FULL}>Videos</p>
+      <p className={FULL}>Clips</p>
+      <p className={FULL}>Collections</p>
+      <p className={FULL}>Events</p>
+      <p className={PARTIAL}>Followers {fmt(user.followers)}</p>
+      <p className={FULL}>Following</p>
     </div>
     <div
       className={css`

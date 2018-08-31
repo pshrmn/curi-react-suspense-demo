@@ -3,19 +3,14 @@ import { css } from "emotion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-const BUTTON = props => (
-  <button
-    {...props}
-    className={css`
-      height: 100%;
-      display: block;
-      margin: 0 3px;
-      color: #efefef;
-      background: #8a2b33;
-      border: 1px solid rgba(255,255,255,0.5);
-    `}
-  />
-);
+const BUTTON = css`
+  height: 100%;
+  display: block;
+  margin: 0 3px;
+  color: #efefef;
+  background: #8a2b33;
+  border: 1px solid rgba(255,255,255,0.5);
+`;
 
 export default class Carousel extends React.Component {
   constructor(props) {
@@ -47,9 +42,9 @@ export default class Carousel extends React.Component {
           height: 80px;
         `}
       >
-        <BUTTON onClick={this.scrollLeft}>
+        <button className={BUTTON} onClick={this.scrollLeft}>
           <FontAwesomeIcon icon={faChevronLeft} />
-        </BUTTON>
+        </button>
         <div
           ref={this.itemsRef}
           className={css`
@@ -61,9 +56,9 @@ export default class Carousel extends React.Component {
         >
           {this.props.children}
         </div>
-        <BUTTON onClick={this.scrollRight}>
+        <button className={BUTTON} onClick={this.scrollRight}>
           <FontAwesomeIcon icon={faChevronRight} />
-        </BUTTON>
+        </button>
       </div>
     );
   }

@@ -43,6 +43,7 @@ export default class Chat extends React.Component {
             font-size: 20px;
             line-height: 1.5em;
             cursor: pointer;
+            padding: 5px;
           `}
           onClick={this.toggleHidden}
         >

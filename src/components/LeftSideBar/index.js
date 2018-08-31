@@ -30,7 +30,6 @@ export default class LeftSideBar extends React.Component {
           position: relative;
           margin-right: 25px;
           color: #ff6868;
-
           width: ${hidden ? '45px': 'inherit'}
         `}
       >
@@ -45,6 +44,7 @@ export default class LeftSideBar extends React.Component {
             font-size: 20px;
             line-height: 1.5em;
             cursor: pointer;
+            padding: 5px;
           `}
           onClick={this.toggleHidden}>
           {hidden
@@ -54,7 +54,7 @@ export default class LeftSideBar extends React.Component {
         </div>
         <div
           className={css`
-            padding: 15px 15px 0;
+            padding: ${hidden ? "5px 5px 0" : "15px 15px 0"};
           `}
         >
           <div className='featured'>
