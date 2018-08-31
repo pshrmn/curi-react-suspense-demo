@@ -13,11 +13,11 @@ export default [
     }
   },
   {
-    name: 'Browse',
+    name: 'Browse Games',
     path: 'directory',
     response() {
       return {
-        body: React.lazy(() => import("./pages/Browse")),
+        body: React.lazy(() => import("./pages/BrowseGames")),
         title: 'Browsing Games'
       };
     },
@@ -27,7 +27,7 @@ export default [
         path: 'all',
         response() {
           return {
-            body: React.lazy(() => import("./pages/Popular")),
+            body: React.lazy(() => import("./pages/PopularStreams")),
             title: 'Popular Streams'
           };
         }
@@ -37,7 +37,7 @@ export default [
         path: 'game/:game',
         response({ match }) {
           return {
-            body: React.lazy(() => import("./pages/Game")),
+            body: React.lazy(() => import("./pages/GameStreams")),
             title: `Browsing ${match.params.game}`
           };
         }

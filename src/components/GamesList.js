@@ -4,8 +4,9 @@ import { css } from "emotion";
 import { createResource } from "simple-cache-provider";
 
 import { cache } from "../cache";
+import { POPULAR_GAMES_TIMEOUT } from "../resourceTimers";
 import API from '../generators/streamState';
-
+import Details from '../components/Details';
 import Thumbnail from "./Thumbnail";
 import fmt from "../utils/numberFormat";
 
@@ -13,7 +14,7 @@ const gamesResource = createResource(count => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(API.topGames(count))
-    }, 1000);
+    }, POPULAR_GAMES_TIMEOUT);
   });
 });
 
@@ -27,47 +28,32 @@ export default ({ count }) => {
       `}
     >
       {games.map(game => (
-        <div
+        <Details
           key={game.id}
-          className={css`
-            width: 150px;
-            margin: 0 10px 10px 0;
-          `}
+          to="Game"
+          params={{ game: game.name }}
+          colors={game.colors}
         >
-          <div>
-            <Link to='Game' params={{ game: game.name }}>
-              <Thumbnail
-                width='150'
-                height='200'
-                colors={game.colors}
-              />
-            </Link>
-          </div>
-          <div>
-            <Link
-              to='Game'
-              params={{ game: game.name }}
-              className={css`
-                color: #2c3e50;
-                display: block;
-                text-decoration: none;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-              `}
-            >
-              {game.name}
-            </Link>
-            <p
-              className={css`
-                color: #999;
-                font-size: 0.9em;
-              `}
-            >
-              {fmt(game.watching)} Viewers
-            </p>
-          </div>
-        </div>
+          <p
+            className={css`
+              display: block;
+              text-decoration: none;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            `}
+          >
+            {game.name}
+          </p>
+          <p
+            className={css`
+              color: #999;
+              font-size: 0.9em;
+            `}
+          >
+            {fmt(game.watching)} Viewers
+          </p>
+        </Details>
       ))}
     </div>
   );

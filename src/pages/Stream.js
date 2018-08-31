@@ -4,7 +4,7 @@ import { createResource } from "simple-cache-provider";
 
 import { cache } from "../cache";
 import API from "../generators/streamState";
-
+import { STREAM_TIMEOUT } from "../resourceTimers";
 import UserTopBar from '../components/UserTopBar';
 import VideoPlayer from '../components/VideoPlayer';
 import Chat from '../components/Chat';
@@ -18,7 +18,7 @@ const userResource = createResource(username => {
       } catch (e) {
         reject("User not found");
       }
-    }, 1000);
+    }, STREAM_TIMEOUT);
   });
 })
 

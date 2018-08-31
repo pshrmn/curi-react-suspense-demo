@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "@curi/react-dom";
 import { css } from "emotion";
+import SpinnerLink from "../SpinnerLink";
 
 import Thumbnail from '../Thumbnail';
 
 const A = props => (
-  <Link
+  <SpinnerLink
     {...props}
     className={css`
       color: #ff6868

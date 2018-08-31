@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "@curi/react-dom";
 import { css } from "emotion";
+
+import SpinnerLink from "./SpinnerLink";
 
 const TopBar = () => (
   <div
@@ -23,15 +24,17 @@ const TopBar = () => (
       }
       `}
     >
-      <Link
+      <SpinnerLink
         to='Home'
         className={css`
           font-size: 2em;
         `}
       >
         Glitch!
-      </Link>
-      <Link to='Browse'>Browse</Link>
+      </SpinnerLink>
+      <SpinnerLink to='Browse Games'>
+        Browse
+      </SpinnerLink>
     </nav>
   </div>
 );

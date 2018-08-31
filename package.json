@@ -15,7 +15,8 @@
     "@hickory/browser": "^1.0.0",
     "emotion": "^9.2.8",
     "prop-types": "^15.6.2",
-    "react-emotion": "^9.2.8"
+    "react-emotion": "^9.2.8",
+    "react-spinkit": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -24,6 +25,8 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.0",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"

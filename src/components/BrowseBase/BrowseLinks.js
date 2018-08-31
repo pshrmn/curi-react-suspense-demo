@@ -45,7 +45,7 @@ const BrowseLinks = () => (
   <nav>
     <UL>
       <LI>
-        <A to='Browse'>
+        <A to='Browse Games'>
           Games
         </A>
       </LI>

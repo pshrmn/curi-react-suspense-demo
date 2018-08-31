@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "@curi/react-dom";
 import { css } from "emotion";
 
+import Spinner from "../Spinner";
 import Thumbnail from '../Thumbnail';
 
-const A = props => (
+const StyledLink = props => (
   <Link
     {...props}
     className={css`
@@ -37,20 +38,23 @@ export default ({ stream, hidden }) => (
       margin: 3px 0;
     `}
   >
-    <A to='Stream' params={{ username: stream.username }}>
-      <Thumbnail width='35' height='35' colors={stream.colors} />
-      {!hidden
-        ? <div
-            className={css`
-              margin-left: 5px;
-            `}
-          >
-            <Header tag="h4">{stream.username}</Header>
-            <Header tag="h5">{stream.playing.name}</Header>
-          </div>
-        : null
-      }
-      
-    </A>
+    <StyledLink to='Stream' params={{ username: stream.username }}>
+      {navigating => (
+        <React.Fragment>
+          <Thumbnail width='35' height='35' colors={stream.colors} spin={navigating}/>
+          {!hidden
+            ? <div
+                className={css`
+                  margin-left: 5px;
+                `}
+              >
+                <Header tag="h4">{stream.username}</Header>
+                <Header tag="h5">{stream.playing.name}</Header>
+              </div>
+            : null
+          }
+        </React.Fragment>
+      )}
+    </StyledLink>
   </div>
 );
