@@ -11,6 +11,7 @@ export default ({ children, color = "#fff", ...rest }) => (
         {navigating
           ? <Spinner
               name="pulse"
+              fadeIn="none"
               color={color}
               className={css`
                 display: inline-block;

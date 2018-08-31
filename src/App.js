@@ -4,6 +4,7 @@ import Spinner from "react-spinkit";
 
 import TopBar from './components/TopBar';
 import LeftSideBar from './components/LeftSideBar';
+import { PLACEHOLDER_DELAY } from "./resourceTimers";
 
 const App = ({ response }) => {
   const leftBar = response.name === "Home" ? null : <LeftSideBar />;
@@ -18,8 +19,12 @@ const App = ({ response }) => {
           {ref => (
             <main tabIndex="-1" ref={ref}>
               <React.Placeholder
-                delayMs={2000}
-                fallback={<Spinner name="pulse" fadeIn="none" color="#000"/>}
+                delayMs={PLACEHOLDER_DELAY}
+                fallback={
+                  <FinishNavigation>
+                    <Spinner name="pulse" fadeIn="none" color="#000"/>    
+                  </FinishNavigation>
+                }
               >
                 <FinishNavigation>
                   <Body response={response} />

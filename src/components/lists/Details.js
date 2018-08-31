@@ -10,6 +10,7 @@ const Details = ({ to, params, colors, children }) => (
     className={css`
       width: 150px;
       margin: 0 10px 10px 0;
+      position: relative;
     `}
   >
     <Link
@@ -18,22 +19,32 @@ const Details = ({ to, params, colors, children }) => (
       className={css`
         text-decoration: none;
         color: #2c3e50;
-        position: relative;
+        display: block;
       `}
     >
       {navigating => (
         <React.Fragment>
           {navigating
-            ? <Spinner
-                name="pulse"
-                fadeIn="none"
-                color="#fff"
+            ? <div
                 className={css`
                   position: absolute;
-                  left: 10;
-                  top: 10;
+                  left: 0;
+                  top: 0;
+                  width: 150px;
+                  height: 200px;
+                  background: rgba(255, 255, 255, 0.5);
                 `}
-              />
+              >
+                <Spinner
+                  name="pulse"
+                  fadeIn="none"
+                  className={css`
+                    position: absolute;
+                    left: 60px;
+                    top: 90px;
+                  `}
+                />
+              </div>
             : null
           }
           <Thumbnail

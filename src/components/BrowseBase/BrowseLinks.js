@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-import ActiveLink from '../ActiveLink';
+import SpinnerLink from '../SpinnerLink';
 
 const UL = css`
   display: flex;
@@ -17,8 +17,9 @@ const LI = css`
 `;
 
 const StyledLink = (props) => (
-  <ActiveLink
+  <SpinnerLink
     {...props}
+    color="#444"
     className={css`
       color: #2c3e50;
     
