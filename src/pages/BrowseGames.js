@@ -1,7 +1,7 @@
 import React from "react";
 
 import BrowseBase from '../components/BrowseBase';
-import GamesList from '../components/GamesList';
+import GamesList from '../components/lists/GamesList';
 
 export default ({ response }) => (
   <BrowseBase>

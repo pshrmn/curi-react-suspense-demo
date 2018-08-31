@@ -3,12 +3,12 @@ import { Link } from "@curi/react-dom";
 import { css } from "emotion";
 import { createResource } from "simple-cache-provider";
 
-import { cache } from "../cache";
-import { POPULAR_GAMES_TIMEOUT } from "../resourceTimers";
-import API from '../generators/streamState';
-import Details from '../components/Details';
-import Thumbnail from "./Thumbnail";
-import fmt from "../utils/numberFormat";
+import { cache } from "../../cache";
+import { POPULAR_GAMES_TIMEOUT } from "../../resourceTimers";
+import API from '../../generators/streamState';
+import Details from './Details';
+import Thumbnail from "../Thumbnail";
+import fmt from "../../utils/numberFormat";
 
 const gamesResource = createResource(count => {
   return new Promise(resolve => {

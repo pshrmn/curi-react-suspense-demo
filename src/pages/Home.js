@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "emotion";
 
 import Featured from '../components/Featured';
-import GamesList from '../components/GamesList';
+import GamesList from '../components/lists/GamesList';
 
 export default ({ response }) => (
   <div

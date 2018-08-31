@@ -3,7 +3,7 @@ import { Link } from "@curi/react-dom";
 import { css } from "emotion";
 import Spinner from "react-spinkit";
 
-import Thumbnail from './Thumbnail';
+import Thumbnail from '../Thumbnail';
 
 const Details = ({ to, params, colors, children }) => (
   <div
@@ -18,10 +18,24 @@ const Details = ({ to, params, colors, children }) => (
       className={css`
         text-decoration: none;
         color: #2c3e50;
+        position: relative;
       `}
     >
       {navigating => (
         <React.Fragment>
+          {navigating
+            ? <Spinner
+                name="pulse"
+                fadeIn="none"
+                color="#fff"
+                className={css`
+                  position: absolute;
+                  left: 10;
+                  top: 10;
+                `}
+              />
+            : null
+          }
           <Thumbnail
             width='150'
             height='200'
@@ -36,7 +50,6 @@ const Details = ({ to, params, colors, children }) => (
             <div>
               {children}
             </div>
-            {navigating ? <Spinner name="pulse" fadeIn="none" /> : null}
           </div>
         </React.Fragment>
       )}
