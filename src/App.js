@@ -15,7 +15,7 @@ const App = ({ response }) => {
       <TopBar />
       <div className='content'>
         {leftBar}
-        <Focus>
+        <Focus preventScroll={true}>
           {ref => (
             <main tabIndex="-1" ref={ref}>
               <React.Placeholder
