@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { curi } from '@curi/router';
 import Browser from '@hickory/browser';
-import { CuriProvider } from '@curi/react-dom';
+import { curiProvider } from '@curi/react-dom';
 import active from '@curi/route-active';
 
 import routes from './routes';
@@ -13,11 +13,12 @@ const router = curi(history, routes, {
   route: [active()],
   suspend: true
 });
+const Router = curiProvider(router);
 
 ReactDOM.render((
   <React.unstable_AsyncMode>
-    <CuriProvider router={router} suspend={true}>
+    <Router suspend={true}>
       {({ response }) => <App response={response} />}
-    </CuriProvider>
+    </Router>
   </React.unstable_AsyncMode>
 ), document.getElementById('root'));
