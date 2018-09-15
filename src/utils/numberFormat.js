@@ -1,3 +1,3 @@
-export default function(num) {
+export default function numberFormat(num) {
   return num.toLocaleString('en');
 }

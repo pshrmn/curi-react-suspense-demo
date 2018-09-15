@@ -14,7 +14,7 @@ const streamsResource = createResource(() => {
   });
 });
 
-export default () => {
+export default function PopularStreams() {
   const streams = streamsResource.read(cache);
   return <StreamsList streams={streams} />;
 };

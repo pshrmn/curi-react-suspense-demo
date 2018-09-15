@@ -18,7 +18,7 @@ const gamesResource = createResource(count => {
   });
 });
 
-export default ({ count }) => {
+export default function GamesList({ count }) {
   const games = gamesResource.read(cache, count);
   return (
     <div

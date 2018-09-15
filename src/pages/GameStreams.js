@@ -4,7 +4,7 @@ import { css } from "emotion";
 import BrowseBase from '../components/BrowseBase';
 import StreamsForGame from '../components/StreamsForGame';
 
-export default ({ response }) => {
+export default function GameStreams({ response }) {
   const { game } = response.params;
   return (
     <BrowseBase>

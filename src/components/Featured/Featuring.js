@@ -31,72 +31,74 @@ const FakeVideo = props => (
   />
 );
 
-export default ({ stream }) => (
-  <div
-    className={css`
-      display: flex;
-      flex-flow: row nowrap;
-      margin-bottom: 10px;
-
-      @media screen and (max-width: 1080px) {
-        flex-flow: column nowrap;
-      }
-    `}
-  >
-    <FakeVideo />
+export default function Featuring({ stream }) {
+  return (
     <div
       className={css`
-        color: #efefef;
-        padding: 0 15px;
-        min-width: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 10px;
+
+        @media screen and (max-width: 1080px) {
+          flex-flow: column nowrap;
+        }
       `}
     >
+      <FakeVideo />
       <div
         className={css`
-          display: flex;
-          align-items: flex-start;
-          margin-bottom: 15px;
+          color: #efefef;
+          padding: 0 15px;
+          min-width: 0;
         `}
       >
-        <Thumbnail
-          width='50'
-          height='50'
-          colors={stream.colors}
-        />
         <div
           className={css`
-            padding-left: 5px;
-            min-width: 0;
-
-            h2 {
-              font-size: 1.1em;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-
-            h3 {
-              font-size: 1em;
-            }
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
           `}
         >
-          <h2>
-            {stream.username}
-          </h2>
-          <h3>
-            Playing{" "}
-            <StyledLink to='Game' params={{ game: stream.playing.name }}>
-              {stream.playing.name}
-            </StyledLink>
-          </h3>
+          <Thumbnail
+            width='50'
+            height='50'
+            colors={stream.colors}
+          />
+          <div
+            className={css`
+              padding-left: 5px;
+              min-width: 0;
+
+              h2 {
+                font-size: 1.1em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+
+              h3 {
+                font-size: 1em;
+              }
+            `}
+          >
+            <h2>
+              {stream.username}
+            </h2>
+            <h3>
+              Playing{" "}
+              <StyledLink to='Game' params={{ game: stream.playing.name }}>
+                {stream.playing.name}
+              </StyledLink>
+            </h3>
+          </div>
         </div>
+        <p>
+          {stream.description}
+          <StyledLink to='Stream' params={{ username: stream.username }}>
+            Start watching!
+          </StyledLink>
+        </p>
       </div>
-      <p>
-        {stream.description}
-        <StyledLink to='Stream' params={{ username: stream.username }}>
-          Start watching!
-        </StyledLink>
-      </p>
     </div>
-  </div>
-);
+  );
+}

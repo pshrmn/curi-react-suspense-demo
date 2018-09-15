@@ -25,29 +25,31 @@ const HEADER = css`
   width: 150px;
 `;
 
-export default ({ stream, hidden }) => (
-  <div
-    className={css`
-      margin: 3px 0;
-    `}
-  >
-    <StyledLink to='Stream' params={{ username: stream.username }}>
-      {navigating => (
-        <React.Fragment>
-          <Thumbnail width='35' height='35' colors={stream.colors} spin={navigating}/>
-          {!hidden
-            ? <div
-                className={css`
-                  margin-left: 5px;
-                `}
-              >
-                <h4 className={HEADER}>{stream.username}</h4>
-                <h5 className={HEADER}>{stream.playing.name}</h5>
-              </div>
-            : null
-          }
-        </React.Fragment>
-      )}
-    </StyledLink>
-  </div>
-);
+export default function StreamBadge({ stream, hidden }) {
+  return (
+    <div
+      className={css`
+        margin: 3px 0;
+      `}
+    >
+      <StyledLink to='Stream' params={{ username: stream.username }}>
+        {navigating => (
+          <React.Fragment>
+            <Thumbnail width='35' height='35' colors={stream.colors} spin={navigating}/>
+            {!hidden
+              ? <div
+                  className={css`
+                    margin-left: 5px;
+                  `}
+                >
+                  <h4 className={HEADER}>{stream.username}</h4>
+                  <h5 className={HEADER}>{stream.playing.name}</h5>
+                </div>
+              : null
+            }
+          </React.Fragment>
+        )}
+      </StyledLink>
+    </div>
+  );
+}

@@ -22,7 +22,7 @@ const userResource = createResource(username => {
   });
 })
 
-export default ({ response }) => {
+export default function Stream({ response }) {
   const user = userResource.read(cache, response.params.username);
   if (!user) {
     return (

@@ -4,7 +4,7 @@ import { css } from "emotion";
 import BrowseBase from '../components/BrowseBase';
 import PopularStreams from "../components/PopularStreams";
 
-export default ({ response }) => {
+export default function PopularStreams({ response }) {
   return (
     <BrowseBase>
       <h1>Browsing Popular Streams</h1>

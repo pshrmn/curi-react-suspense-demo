@@ -16,15 +16,17 @@ const spin = keyframes`
   }
 `;
 
-export default ({ children }) => (
-  <div
-    className={css`
-      animation: 1s linear 0s infinite ${spin};
-      color: orange;
-      width: 25px;
-      height: 25px;
-    `}
-  >
-    {children}
-  </div>
-);
+export default function Spinner({ children }) {
+  return (
+    <div
+      className={css`
+        animation: 1s linear 0s infinite ${spin};
+        color: orange;
+        width: 25px;
+        height: 25px;
+      `}
+    >
+      {children}
+    </div>
+  );
+}

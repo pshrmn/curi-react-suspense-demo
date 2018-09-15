@@ -14,7 +14,7 @@ const streamsResource = createResource(game => {
   });
 });
 
-export default ({ game }) => {
+export default function StreamsForGame({ game }) {
   const streams = streamsResource.read(cache, game);
   return <StreamsList streams={streams} />;
 };
