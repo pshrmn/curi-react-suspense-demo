@@ -15,9 +15,9 @@
     "@hickory/browser": "^1.0.0",
     "emotion": "^9.2.8",
     "prop-types": "^15.6.2",
-    "react": "^16.6.0-alpha.8af6728",
-    "react-cache": "^16.6.0-alpha.8af6728",
-    "react-dom": "^16.6.0-alpha.8af6728",
+    "react": "16.6.0-alpha.8af6728",
+    "react-cache": "16.6.0-alpha.8af6728",
+    "react-dom": "16.6.0-alpha.8af6728",
     "react-emotion": "^9.2.8",
     "react-spinkit": "^3.0.0"
   },
