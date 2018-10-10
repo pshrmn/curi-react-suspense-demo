@@ -16,9 +16,9 @@ const router = curi(history, routes, {
 const Router = curiProvider(router);
 
 ReactDOM.render((
-  <React.unstable_AsyncMode>
+  <React.unstable_ConcurrentMode>
     <Router suspend={true}>
       {({ response }) => <App response={response} />}
     </Router>
-  </React.unstable_AsyncMode>
+  </React.unstable_ConcurrentMode>
 ), document.getElementById('root'));

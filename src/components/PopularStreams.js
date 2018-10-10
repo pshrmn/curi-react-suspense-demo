@@ -1,5 +1,5 @@
 import React from "react";
-import { createResource } from "simple-cache-provider";
+import { createResource } from "react-cache";
 
 import API from '../generators/streamState';
 import { cache } from "../cache";

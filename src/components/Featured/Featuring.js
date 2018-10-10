@@ -92,12 +92,12 @@ export default function Featuring({ stream }) {
             </h3>
           </div>
         </div>
-        <p>
+        <div>
           {stream.description}
           <StyledLink to='Stream' params={{ username: stream.username }}>
             Start watching!
           </StyledLink>
-        </p>
+        </div>
       </div>
     </div>
   );

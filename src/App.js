@@ -18,8 +18,8 @@ const App = ({ response }) => {
         <Focus preventScroll={true}>
           {ref => (
             <main tabIndex="-1" ref={ref}>
-              <React.Placeholder
-                delayMs={PLACEHOLDER_DELAY}
+              <React.unstable_Suspense
+                maxDuration={PLACEHOLDER_DELAY}
                 fallback={
                   <FinishNavigation>
                     <Spinner name="pulse" fadeIn="none" color="#000"/>    
@@ -29,7 +29,7 @@ const App = ({ response }) => {
                 <FinishNavigation>
                   <Body response={response} />
                 </FinishNavigation>
-              </React.Placeholder>
+              </React.unstable_Suspense>
             </main>
           )}
         </Focus>

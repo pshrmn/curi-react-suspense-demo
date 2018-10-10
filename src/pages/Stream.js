@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { createResource } from "simple-cache-provider";
+import { createResource } from "react-cache";
 
 import { cache } from "../cache";
 import API from "../generators/streamState";

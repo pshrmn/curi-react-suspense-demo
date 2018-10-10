@@ -1,5 +1,5 @@
 import React from "react";
-import { createResource } from "simple-cache-provider";
+import { createResource } from "react-cache";
 
 import { cache } from "../cache";
 import { GAME_TIMEOUT } from "../resourceTimers";

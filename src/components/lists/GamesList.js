@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@curi/react-dom";
 import { css } from "emotion";
-import { createResource } from "simple-cache-provider";
+import { createResource } from "react-cache";
 
 import { cache } from "../../cache";
 import { POPULAR_GAMES_TIMEOUT } from "../../resourceTimers";
